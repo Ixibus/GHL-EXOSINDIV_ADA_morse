@@ -94,6 +94,8 @@ function encode(string) {
 // Ainsi, créer la fonction getMorseCharacterList ainsi que translateMorseCharacter.
 
 function getMorseCharacterList(string) {
+  console.log("\n*** Etape 4 ***");
+
   return string.split("/");
 }
 // getMorseCharacterList("..- -./- . ... -/-.. ./ --- ..- ..-.");
@@ -104,14 +106,11 @@ function translateMorseCharacter(char) {
 // console.log(translateMorseCharacter("---"));
 
 function decode(morseStr) {
+  console.log("\n*** Etape 4 ***");
+
   let decodeArray = [];
-  // getMorseCharacterList(morseStr).forEach(el => {
-  //   decodeArray.push(translateMorseCharacter(el));
-  // });
-  // return decodeArray;
   getMorseCharacterList(morseStr).forEach((morseWord) => {
     morseWord.split("/").forEach((morseLetter) => {
-      // morseLetter === " " ? decodeArray.push("") : decodeArray.push(translateMorseCharacter(morseLetter));
       decodeArray.push((morseLetter.split(" ").map(el => (translateMorseCharacter(el))).join(""))) ;
     });
   });
@@ -119,3 +118,20 @@ function decode(morseStr) {
 }
 
 console.log(decode("..- -./- . ... -/-.. ./--- ..- ..-."));
+
+
+// Etape 5 : Pour finir cet exercice, utilisez des champs de saisie input en HTML et des boutons pour traduire du texte et du morse dans un sens ou dans l’autre.
+
+function encodeV2(string) {
+  console.log("\n*** Etape 5 ***");
+  let encodeArray = [];
+  getLatinCharacterList(string).forEach((latinWord) => {
+    latinWord.split(" ").forEach((latinLatter) => {
+      encodeArray.push(latinLatter.split("").map(el => translateLatinCharacter(el)).join(""));
+    })
+    
+  });
+  return encodeArray.join("");
+}
+
+console.log(encodeV2("SOS"));
