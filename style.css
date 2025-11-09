@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-size: 32px;
+
+    text-align: center;
+}

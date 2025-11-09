@@ -73,7 +73,7 @@ getLatinCharacterList("un test de ouf");
 function translateLatinCharacter(letter) {
   //   console.log("\n*** Etape 2 ***");
   //   console.log(latinToMorse[letter]);
-  return latinToMorse[letter];
+  return (latinToMorse[letter] ?? letter);
 }
 
 translateLatinCharacter("A");
@@ -81,20 +81,20 @@ translateLatinCharacter("A");
 // Etape 3 : Ajouter une nouvelle fonction encode qui prend en paramètre du texte et qui va utiliser la fonction de l’étape 1, pour chaque caractère, appliquer la fonction de l’étape 2 et ainsi récupérer son équivalent morse.
 
 function encode(string) {
-  console.log("\n*** Etape 3 ***");
+  // console.log("\n*** Etape 3 ***");
   let encodeArray = [];
   getLatinCharacterList(string).forEach((el) => {
     encodeArray.push(translateLatinCharacter(el));
   });
   return encodeArray.join("");
 }
-// console.log(encode("BONJOURJEMAPPELLEFRANCK"));
+encode("BONJOUR JE MAPPELLE FRANCK");
 
 // Etape 4 : appliquez les procédés similaire à ce qui a été fait pour le encode pour créer une fonction decode. Dans cet exercice, on admettra que les lettres en morse sont séparées par un espace, et les mots par des “/” (slash).
 // Ainsi, créer la fonction getMorseCharacterList ainsi que translateMorseCharacter.
 
 function getMorseCharacterList(string) {
-  console.log("\n*** Etape 4 ***");
+  // console.log("\n*** Etape 4 ***");
 
   return string.split("/");
 }
@@ -135,3 +135,15 @@ function encodeV2(string) {
 }
 
 console.log(encodeV2("SOS"));
+
+
+// ----- TO HTML INTERFACE -----
+
+const latinInput = document.getElementById("latinTextEntry");
+const morseOutput = document.querySelector(".outputTextLTM");
+
+const morseInput = document.getElementById("morseTextEntry");
+const latinOutput = document.querySelector(".outputTextMTL");
+
+latinInput.addEventListener('beforeinput', (e) => morseOutput.textContent = encodeV2(e.target.value));
+morseInput.addEventListener('beforeinput', (e) => latinOutput.textContent = decode(e.target.value));

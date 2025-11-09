@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li>Latin to morse</li>
+        <li>Morse to latin</li>
+      </ul>
+    </header>
+    <main id="latinToMorse">
+      <label for="textEntry">Entrer du texte en lettre latine</label>
+      <input type="text" name="textEntry" id="latinTextEntry" />
+      <div class="output morseOutContainer">
+        <p class="outputText outputTextLTM"></p>
+      </div>
+    </main>
+    <main id="morseToLatin">
+      <label for="textEntry">Entrer du texte en Morse</label>
+      <input type="text" name="textEntry" id="morseTextEntry" />
+      <div class="output morseOutContainer">
+        <p class="outputText outputTextMTL"></p>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
