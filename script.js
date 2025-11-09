@@ -125,7 +125,7 @@ console.log(decode("..- -./- . ... -/-.. ./--- ..- ..-."));
 function encodeV2(string) {
   console.log("\n*** Etape 5 ***");
   let encodeArray = [];
-  getLatinCharacterList(string).forEach((latinWord) => {
+  getLatinCharacterList(string.toUpperCase()).forEach((latinWord) => {
     latinWord.split(" ").forEach((latinLatter) => {
       encodeArray.push(latinLatter.split("").map(el => translateLatinCharacter(el)).join(""));
     })
@@ -137,7 +137,7 @@ function encodeV2(string) {
 console.log(encodeV2("SOS"));
 
 
-// ----- TO HTML INTERFACE -----
+// ----- HTML INTERFACE -----
 
 const latinInput = document.getElementById("latinTextEntry");
 const morseOutput = document.querySelector(".outputTextLTM");
@@ -145,5 +145,5 @@ const morseOutput = document.querySelector(".outputTextLTM");
 const morseInput = document.getElementById("morseTextEntry");
 const latinOutput = document.querySelector(".outputTextMTL");
 
-latinInput.addEventListener('beforeinput', (e) => morseOutput.textContent = encodeV2(e.target.value));
-morseInput.addEventListener('beforeinput', (e) => latinOutput.textContent = decode(e.target.value));
+latinInput.addEventListener('input', (e) => morseOutput.textContent = encodeV2(e.target.value));
+morseInput.addEventListener('input', (e) => latinOutput.textContent = decode(e.target.value));
