@@ -73,7 +73,7 @@ getLatinCharacterList("un test de ouf");
 function translateLatinCharacter(letter) {
   //   console.log("\n*** Etape 2 ***");
   //   console.log(latinToMorse[letter]);
-  return (latinToMorse[letter] ?? letter);
+  return latinToMorse[letter] ?? letter;
 }
 
 translateLatinCharacter("A");
@@ -111,14 +111,18 @@ function decode(morseStr) {
   let decodeArray = [];
   getMorseCharacterList(morseStr).forEach((morseWord) => {
     morseWord.split("/").forEach((morseLetter) => {
-      decodeArray.push((morseLetter.split(" ").map(el => (translateMorseCharacter(el))).join(""))) ;
+      decodeArray.push(
+        morseLetter
+          .split(" ")
+          .map((el) => translateMorseCharacter(el))
+          .join("")
+      );
     });
   });
-  return(decodeArray.join(" "));
+  return decodeArray.join(" ");
 }
 
 console.log(decode("..- -./- . ... -/-.. ./--- ..- ..-."));
-
 
 // Etape 5 : Pour finir cet exercice, utilisez des champs de saisie input en HTML et des boutons pour traduire du texte et du morse dans un sens ou dans l’autre.
 
@@ -127,15 +131,18 @@ function encodeV2(string) {
   let encodeArray = [];
   getLatinCharacterList(string.toUpperCase()).forEach((latinWord) => {
     latinWord.split(" ").forEach((latinLatter) => {
-      encodeArray.push(latinLatter.split("").map(el => translateLatinCharacter(el)).join(""));
-    })
-    
+      encodeArray.push(
+        latinLatter
+          .split("")
+          .map((el) => translateLatinCharacter(el))
+          .join("")
+      );
+    });
   });
-  return encodeArray.join("");
+  return encodeArray.join(" ");
 }
 
 console.log(encodeV2("SOS"));
-
 
 // ----- HTML INTERFACE -----
 
@@ -145,5 +152,36 @@ const morseOutput = document.querySelector(".outputTextLTM");
 const morseInput = document.getElementById("morseTextEntry");
 const latinOutput = document.querySelector(".outputTextMTL");
 
-latinInput.addEventListener('input', (e) => morseOutput.textContent = encodeV2(e.target.value));
-morseInput.addEventListener('input', (e) => latinOutput.textContent = decode(e.target.value));
+latinInput.addEventListener(
+  "input",
+  (e) => (morseOutput.textContent = encodeV2(e.target.value))
+);
+morseInput.addEventListener(
+  "input",
+  (e) => (latinOutput.textContent = decode(e.target.value))
+);
+
+// togle system
+
+const lTMTab = document.getElementById("LTM_li");
+const lTMDisplay = document.getElementById("latinToMorse");
+const mTLTab = document.getElementById("MTL_li");
+const mTLDisplay = document.getElementById("morseToLatin");
+
+const barUlSelector = document.getElementById("barSelector");
+
+lTMTab.addEventListener("click", () => {
+  lTMDisplay.style.display = "flex";
+  mTLDisplay.style.display = "none";
+  barUlSelector.style.left = "";
+  barUlSelector.style.right = "55vw";
+});
+
+barUlSelector.addEventListener("click", () => console.log("yes"));
+
+mTLTab.addEventListener("click", () => {
+  mTLDisplay.style.display = "flex";
+  lTMDisplay.style.display = "none";
+  barUlSelector.style.left = "55vw";
+  barUlSelector.style.right = "";
+});

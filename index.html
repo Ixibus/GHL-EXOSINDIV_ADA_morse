@@ -9,21 +9,22 @@
   <body>
     <header>
       <ul>
-        <li>Latin to morse</li>
-        <li>Morse to latin</li>
+        <li id="LTM_li">Latin to morse</li>
+        <li id="MTL_li">Morse to latin</li>
+        <div id="barSelector"></div>
       </ul>
     </header>
-    <main id="latinToMorse">
+    <main id="latinToMorse" style="display: none">
       <label for="textEntry">Entrer du texte en lettre latine</label>
       <input type="text" name="textEntry" id="latinTextEntry" autocomplete="off"/>
       <div class="output morseOutContainer">
         <p class="outputText outputTextLTM"></p>
       </div>
     </main>
-    <main id="morseToLatin">
+    <main id="morseToLatin" style="display: none">
       <label for="textEntry">Entrer du texte en Morse en séparant chaque lettre par un espace et chaque mot par un "/"</label>
       <input type="text" name="textEntry" id="morseTextEntry" autocomplete="off"/>
-      <div class="output morseOutContainer">
+      <div class="output latinOutContainer">
         <p class="outputText outputTextMTL"></p>
       </div>
     </main>
