@@ -174,7 +174,6 @@ const barUlSelector = document.getElementById("barSelector");
 lTMTab.addEventListener("click", () => {
   lTMDisplay.style.display = "flex";
   mTLDisplay.style.display = "none";
-  barUlSelector.style.display = "block";
   barUlSelector.style.left = "calc(50% - 220px)";
   body.style.backgroundColor = "var(--bg-latin-to-morse)";
 });
@@ -184,7 +183,6 @@ barUlSelector.addEventListener("click", () => console.log("yes"));
 mTLTab.addEventListener("click", () => {
   mTLDisplay.style.display = "flex";
   lTMDisplay.style.display = "none";
-  barUlSelector.style.display = "block";
   barUlSelector.style.left = "calc(50% + 10px)";
   body.style.backgroundColor = "var(--bg-morse-to-latin)";
 });
