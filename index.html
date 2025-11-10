@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
   </head>
   <body>
@@ -16,14 +22,27 @@
     </header>
     <main id="latinToMorse" style="display: none">
       <label for="textEntry">Entrer du texte en lettre latine</label>
-      <input type="text" name="textEntry" id="latinTextEntry" autocomplete="off"/>
+      <input
+        type="text"
+        name="textEntry"
+        id="latinTextEntry"
+        autocomplete="off"
+      />
       <div class="output morseOutContainer">
         <p class="outputText outputTextLTM"></p>
       </div>
     </main>
     <main id="morseToLatin" style="display: none">
-      <label for="textEntry">Entrer du texte en Morse en séparant chaque lettre par un espace et chaque mot par un "/"</label>
-      <input type="text" name="textEntry" id="morseTextEntry" autocomplete="off"/>
+      <label for="textEntry"
+        >Entrer du texte en Morse en séparant chaque lettre par un espace et
+        chaque mot par un "/"</label
+      >
+      <input
+        type="text"
+        name="textEntry"
+        id="morseTextEntry"
+        autocomplete="off"
+      />
       <div class="output latinOutContainer">
         <p class="outputText outputTextMTL"></p>
       </div>

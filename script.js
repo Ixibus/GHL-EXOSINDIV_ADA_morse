@@ -163,6 +163,7 @@ morseInput.addEventListener(
 
 // togle system
 
+const body = document.querySelector("body");
 const lTMTab = document.getElementById("LTM_li");
 const lTMDisplay = document.getElementById("latinToMorse");
 const mTLTab = document.getElementById("MTL_li");
@@ -173,8 +174,9 @@ const barUlSelector = document.getElementById("barSelector");
 lTMTab.addEventListener("click", () => {
   lTMDisplay.style.display = "flex";
   mTLDisplay.style.display = "none";
-  barUlSelector.style.left = "";
-  barUlSelector.style.right = "55vw";
+  barUlSelector.style.display = "block";
+  barUlSelector.style.left = "calc(50% - 220px)";
+  body.style.backgroundColor = "var(--bg-latin-to-morse)";
 });
 
 barUlSelector.addEventListener("click", () => console.log("yes"));
@@ -182,6 +184,7 @@ barUlSelector.addEventListener("click", () => console.log("yes"));
 mTLTab.addEventListener("click", () => {
   mTLDisplay.style.display = "flex";
   lTMDisplay.style.display = "none";
-  barUlSelector.style.left = "55vw";
-  barUlSelector.style.right = "";
+  barUlSelector.style.display = "block";
+  barUlSelector.style.left = "calc(50% + 10px)";
+  body.style.backgroundColor = "var(--bg-morse-to-latin)";
 });
